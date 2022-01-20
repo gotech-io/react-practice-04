@@ -1,30 +1,20 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { ThemeContext, themeNames } from './themeContext';
+import { ThemeContext } from './themeContext';
+import styled from 'styled-components';
+
+const HeaderContainer = styled.header`
+  color: ${({ theme }) => theme.textColor};
+  text-align: center;
+`;
 
 const Header = ({ text }) => {
-  const { theme, changeTheme } = useContext(ThemeContext);
-  const toggleTheme = () => {
-    changeTheme(
-      theme.name === themeNames.light ? themeNames.dark : themeNames.light
-    );
-  };
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <header
-      className="header"
-      style={{ background: theme.primaryColor, color: theme.textColor }}
-    >
-      <h1>
-        {text}
-        <button
-          onClick={toggleTheme}
-          style={{ background: theme.primaryColor, color: theme.textColor }}
-        >
-          {theme.name}
-        </button>
-      </h1>
-    </header>
+    <HeaderContainer theme={theme}>
+      <h1>{text}</h1>
+    </HeaderContainer>
   );
 };
 

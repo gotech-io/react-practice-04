@@ -1,19 +1,36 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { ThemeContext } from './themeContext';
+import styled from 'styled-components';
+import Checkbox from './Checkbox';
+
+const ToDoItemContainer = styled.li`
+  border-top: 1px solid ${({ theme }) => theme.borderColor};
+  padding: 8px 12px;
+  color: ${({ theme }) => theme.textColor};
+
+  :first-child {
+    border-top: none;
+  }
+
+  & > span:last-child {
+    vertical-align: middle;
+    padding: 0 8px;
+  }
+`;
 
 const ToDoItem = ({ todo, onChange }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <li style={{ background: theme.primaryColor, color: theme.textColor }}>
-      <input
+    <ToDoItemContainer theme={theme}>
+      <Checkbox
         type="checkbox"
         checked={todo.isCompleted}
         onChange={(e) => onChange(todo.id, e.currentTarget.checked)}
       />
       <span>{todo.title}</span>
-    </li>
+    </ToDoItemContainer>
   );
 };
 

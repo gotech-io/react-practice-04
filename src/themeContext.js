@@ -10,11 +10,19 @@ const themes = {
     name: themeNames.light,
     primaryColor: '#e8e8e8',
     textColor: '#000000',
+    disabledTextColor: '#333333',
+    buttonColor: '#4fbe79',
+    borderColor: '#aaaaaa',
+    checkboxColor: '#4fbe79',
   },
   dark: {
     name: themeNames.dark,
     primaryColor: '#424242',
     textColor: '#ffffff',
+    disabledTextColor: '#dddddd',
+    buttonColor: '#4fbe79',
+    borderColor: '#aaaaaa',
+    checkboxColor: '#4fbe79',
   },
 };
 

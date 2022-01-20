@@ -1,4 +1,3 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import ToDoList from './ToDoList';
 import ToDoInput from './ToDoInput';

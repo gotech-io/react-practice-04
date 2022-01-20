@@ -1,37 +1,85 @@
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useState, useContext } from 'react';
-import { ThemeContext } from './themeContext';
 
-const Toggle = ({ initialState, text, onChange }) => {
-  const [isActive, setIsActive] = useState(initialState);
-  const { theme } = useContext(ThemeContext);
+const CheckboxWrapper = styled.span`
+  position: relative;
+  display: inline-block;
+`;
 
+const CheckboxLabel = styled.label`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 26px;
+  border-radius: 15px;
+  background: #bebebe;
+  cursor: pointer;
+  &::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    background: #ffffff;
+    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+  }
+`;
+
+const Checkbox = styled.input`
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+  border-radius: 15px;
+  width: 42px;
+  height: 26px;
+  &:checked + ${CheckboxLabel} {
+    background: ${({ theme }) => theme.checkboxColor};
+    &::after {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      margin-left: 21px;
+      transition: 0.2s;
+    }
+  }
+`;
+
+const CheckboxText = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.textColor};
+`;
+
+const Toggle = ({ onChange, checked, theme, text }) => {
   return (
-    <div style={{ background: theme.primaryColor, color: theme.textColor }}>
-      <label>
-        <input
-          type="checkbox"
-          checked={isActive}
-          onChange={(e) => {
-            setIsActive(e.currentTarget.checked);
-            onChange(e.currentTarget.checked);
-          }}
-        />
-        {text}
-      </label>
-    </div>
+    <CheckboxWrapper>
+      <Checkbox
+        id="checkbox"
+        type="checkbox"
+        onChange={onChange}
+        checked={checked}
+        theme={theme}
+      />
+      <CheckboxLabel htmlFor="checkbox" />
+      {text && <CheckboxText theme={theme}>{text}</CheckboxText>}
+    </CheckboxWrapper>
   );
 };
 
 Toggle.propTypes = {
-  initialState: PropTypes.bool.isRequired,
-  text: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-};
-
-Toggle.defaultProps = {
-  initialState: false,
-  onChange: (checked) => {},
+  theme: PropTypes.object.isRequired,
+  checked: PropTypes.bool,
+  text: PropTypes.string,
 };
 
 export default Toggle;
