@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const CheckboxWrapper = styled.span`
   position: relative;
@@ -60,16 +61,18 @@ const CheckboxText = styled.span`
 `;
 
 const Toggle = ({ onChange, checked, theme, text }) => {
+  const [id] = useState(() => `toggle-${Math.random().toString(16).slice(2)}`);
+
   return (
     <CheckboxWrapper>
       <Checkbox
-        id="checkbox"
+        id={id}
         type="checkbox"
         onChange={onChange}
         checked={checked}
         theme={theme}
       />
-      <CheckboxLabel htmlFor="checkbox" />
+      <CheckboxLabel htmlFor={id} />
       {text && <CheckboxText theme={theme}>{text}</CheckboxText>}
     </CheckboxWrapper>
   );
