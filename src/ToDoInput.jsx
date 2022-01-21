@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { ThemeContext } from './themeContext';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 const ToDoInputContainer = styled.div`
   display: flex;

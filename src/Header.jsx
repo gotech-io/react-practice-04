@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { ThemeContext } from './themeContext';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 const HeaderContainer = styled.header`
   color: ${({ theme }) => theme.textColor};

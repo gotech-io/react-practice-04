@@ -4,7 +4,7 @@ import FetchToDoList from './FetchToDoList';
 import ThemeToggle from './ThemeToggle';
 import CompletedToggle from './CompletedToggle';
 import ThemeProvider, { ThemeContext } from './themeContext';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 const Container = styled.div`
   position: relative;

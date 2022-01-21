@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ToDoItem from './ToDoItem';
 import { useContext } from 'react';
 import { ThemeContext } from './themeContext';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 const List = styled.ul`
   list-style: none;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
 import { ThemeContext } from './themeContext';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import Toggle from './Toggle';
 
 const ToggleContainer = styled.div`

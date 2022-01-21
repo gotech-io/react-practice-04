@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
+import styled from '@emotion/styled/macro';
 import { ThemeContext } from './themeContext';
-import styled from 'styled-components';
 import Checkbox from './Checkbox';
 
 const ToDoItemContainer = styled.li`
@@ -9,11 +9,11 @@ const ToDoItemContainer = styled.li`
   padding: 8px 12px;
   color: ${({ theme }) => theme.textColor};
 
-  :first-child {
+  :first-of-type {
     border-top: none;
   }
 
-  & > span:last-child {
+  & > span:last-of-type {
     vertical-align: middle;
     padding: 0 8px;
   }

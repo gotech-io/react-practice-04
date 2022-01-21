@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { useContext } from 'react';
 import { ThemeContext } from './themeContext';
 
