@@ -18,6 +18,7 @@ const CheckboxInput = styled.input`
   border-radius: 1px;
   outline: none;
   margin: 0;
+  cursor: pointer;
 
   &:checked {
     background-color: ${({ theme }) => theme.checkboxColor};
